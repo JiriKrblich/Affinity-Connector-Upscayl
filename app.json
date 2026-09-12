@@ -1,0 +1,140 @@
+{
+  "id": "upscayl",
+  "name": "Upscayl",
+  "description": "Enlarge artwork with Upscayl's models, on this machine. Nothing is uploaded anywhere and it works with no internet at all.",
+  "version": "2.2.6",
+  "testedWith": "Affinity 3.2.3 · Connector for Affinity 1.0.0",
+  "author": "jirikrblich",
+  "bar": { "icon": "zoom-in-area" },
+  "image": "docs/header.jpg",
+  "url": "https://jirikrblich.netlify.app",
+  "homepage": "https://upscayl.org",
+  "runLabel": "Upscale",
+  "main": "index.js",
+  "timeoutSec": 1200,
+  "commands": [
+    "upscayl-bin"
+  ],
+  "fields": [
+    {
+      "key": "note",
+      "type": "note",
+      "label": "Needs Upscayl installed, and local commands switched on under Settings with upscayl-bin on the allowlist."
+    },
+    {
+      "key": "image",
+      "type": "image",
+      "label": "Enlarge",
+      "source": "selection",
+      "sources": [
+        "selection",
+        "lasso",
+        "area",
+        "native",
+        "artboard",
+        "layer",
+        "spread",
+        "document",
+        "file"
+      ],
+      "required": true
+    },
+    {
+      "key": "model",
+      "type": "select",
+      "label": "Model",
+      "optionsFrom": "models",
+      "default": "upscayl-standard-4x",
+      "options": [
+        {
+          "value": "upscayl-standard-4x",
+          "label": "Standard"
+        },
+        {
+          "value": "upscayl-lite-4x",
+          "label": "Lite, quicker"
+        },
+        {
+          "value": "high-fidelity-4x",
+          "label": "High fidelity"
+        },
+        {
+          "value": "remacri-4x",
+          "label": "Remacri"
+        },
+        {
+          "value": "ultramix-balanced-4x",
+          "label": "Ultramix balanced"
+        },
+        {
+          "value": "ultrasharp-4x",
+          "label": "Ultrasharp"
+        },
+        {
+          "value": "digital-art-4x",
+          "label": "Digital art"
+        }
+      ],
+      "help": "Press refresh to read the models actually installed with your copy of Upscayl."
+    },
+    {
+      "key": "scale",
+      "type": "select",
+      "label": "Enlarge by",
+      "default": "4",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 times"
+        },
+        {
+          "value": "3",
+          "label": "3 times"
+        },
+        {
+          "value": "4",
+          "label": "4 times"
+        }
+      ],
+      "help": "Four times a large export is a very large picture. The log says what it will measure before it starts."
+    },
+    {
+      "key": "format",
+      "type": "select",
+      "label": "Save as",
+      "default": "png",
+      "options": [
+        {
+          "value": "png",
+          "label": "PNG"
+        },
+        {
+          "value": "jpg",
+          "label": "JPEG"
+        },
+        {
+          "value": "webp",
+          "label": "WebP"
+        }
+      ],
+      "advanced": true,
+      "help": "WebP cannot hold a side longer than 16383 pixels; anything bigger is written as PNG instead."
+    },
+    {
+      "key": "place",
+      "type": "checkbox",
+      "label": "Place the result in the document when it is done",
+      "default": true,
+      "advanced": true
+    }
+  ],
+  "settings": [
+    {
+      "key": "binary",
+      "type": "text",
+      "label": "Upscayl command",
+      "default": "",
+      "help": "Leave empty to find it in the usual place. Set it if Upscayl lives somewhere else, or to point at a plain realesrgan build."
+    }
+  ]
+}
